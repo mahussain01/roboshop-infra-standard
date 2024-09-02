@@ -3,7 +3,7 @@ pipeline {
      options {
         ansiColor('xterm')
     stages {
-        stage('init') {
+        stage('Init') {
             steps {
                
                 sh '''
