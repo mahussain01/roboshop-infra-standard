@@ -1,0 +1,33 @@
+pipeline {
+    agent { node { label 'agent-1' } } 
+    stages {
+        stage('init') {
+            steps {
+               
+                sh '''
+                terraform init
+
+                '''
+            }
+        }
+        stage('plan') {
+            steps {
+                sh '''
+                terraform plan
+                '''
+            }
+        }
+
+    }
+        post { 
+        always { 
+            echo 'I will always run whether the job is done or not'
+        }
+        success{
+            echo 'I will run only after successful run'
+        }
+        failure{
+            echo 'i will run only after failure'
+        }
+    }
+}
