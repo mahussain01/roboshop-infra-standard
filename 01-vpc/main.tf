@@ -1,5 +1,5 @@
 module "vpc" {
-  source                 = "../../terraform-aws-vpc-advanced"
+  source                 = "git::https://github.com/sivadevopsdaws74s/terraform-aws-vpc-advanced.git"
   project_name           = var.project_name
   cidr_block             = var.cidr_block
   common_tags            = var.common_tags
@@ -9,7 +9,7 @@ module "vpc" {
   selector_vpc_id        = data.aws_vpc.default.id
   is_peering_required    = true
   default_route_table_id = data.aws_vpc.default.main_route_table_id
-  default_vpc_cidr = data.aws_vpc.default.cidr_block
+  default_vpc_cidr       = data.aws_vpc.default.cidr_block
 
 
 }
